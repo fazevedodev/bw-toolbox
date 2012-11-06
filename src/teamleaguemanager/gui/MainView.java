@@ -9,6 +9,8 @@ package teamleaguemanager.gui;
  * @author Fabiano
  */
 public class MainView extends javax.swing.JFrame {
+    
+    static private NewLeagueView mNewLeagueView = null;
 
     /**
      * Creates new form MainView
@@ -18,6 +20,14 @@ public class MainView extends javax.swing.JFrame {
         
         mPanelViewContent.setLayout(new java.awt.BorderLayout());
         mPanelViewContent.add(new ScheduleView());
+    }
+    
+    protected void openNewLeagueView() {
+        if(mNewLeagueView == null) {
+            mNewLeagueView = new NewLeagueView();
+        }
+        
+        mNewLeagueView.setVisible(true);
     }
 
     /**
@@ -83,6 +93,11 @@ public class MainView extends javax.swing.JFrame {
 
         mMenuItemNewLeague.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
         mMenuItemNewLeague.setText("New");
+        mMenuItemNewLeague.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mMenuItemNewLeagueActionPerformed(evt);
+            }
+        });
         mMenuLeagues.add(mMenuItemNewLeague);
 
         mMenuItemOpen.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
@@ -137,6 +152,11 @@ public class MainView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void mMenuItemNewLeagueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mMenuItemNewLeagueActionPerformed
+        openNewLeagueView();
+    }//GEN-LAST:event_mMenuItemNewLeagueActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel mLabelPanelViewTitle;
     private javax.swing.JMenuBar mMenuBar;

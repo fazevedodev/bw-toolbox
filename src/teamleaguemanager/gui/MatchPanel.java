@@ -5,7 +5,6 @@
 package teamleaguemanager.gui;
 
 import java.awt.Dimension;
-import java.awt.image.ImageObserver;
 
 /**
  *
